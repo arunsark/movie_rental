@@ -1,2 +1,17 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<h2>Movie Listing</h2>
+<table>
+<tr>
+<th>Movie</th>
+<th>Genre</th>
+</tr>
+<% @movies.each do |movie| %>
+  <tr>
+  <td> <%= link_to movie.name, movie_path(movie) %> </td>
+  <td> <%= movie.genre %> </td>
+  <td> <%= link_to "Edit", edit_movie_path(movie) %> </td>
+  <td> <%= link_to "Delete", movie_path(movie), :method => "delete", :confirm => "Are you sure?" %> </td>
+  </tr>
+<% end %>
+</table>
+
+

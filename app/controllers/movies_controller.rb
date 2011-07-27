@@ -13,15 +13,27 @@ class MoviesController < ApplicationController
   end
 
   def index
+    @movies = Movie.all
   end
 
   def destroy
+    @movie = Movie.find(params[:id])
+    if @movie.destroy
+      redirect_to movies_path
+    end      
   end
 
   def edit
+    @movie = Movie.find(params[:id])
   end
 
   def update
+    @movie = Movie.find(params[:id])
+    if @movie.update_attributes(params[:movie])
+      redirect_to movies_path
+    else
+      render 'movies/edit'
+    end
   end
 
   def show
