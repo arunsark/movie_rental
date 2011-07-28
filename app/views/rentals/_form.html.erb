@@ -20,7 +20,7 @@
   </div>
   <div class="field">
     <%= f.label :customer %><br />
-    <%= f.text_field :customer_id %>
+    <%= f.collection_select :customer_id,Customer.all, :id, :name %>
   </div>
 
   <div class="actions">

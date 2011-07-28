@@ -1,4 +1,6 @@
 MovieRental::Application.routes.draw do
+  resources :customers
+
   resources :movies
   resources :rentals
   # The priority is based upon order of creation:

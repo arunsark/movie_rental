@@ -6,7 +6,7 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(params[:rental])
     if @rental.save
-      flash[:notice] = "#{@rental.movie.name} has been rented!"
+      flash[:notice] = "#{@rental.movie.name} has been rented to #{@rental.customer.name}!"
       redirect_to movies_path
     else
       flash[:notice] = "Some problem prevented the movie from being rented"
