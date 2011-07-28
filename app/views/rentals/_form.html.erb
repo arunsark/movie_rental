@@ -10,7 +10,7 @@
    <% end %>
 
   <div class="field">
-    <%= f.label :movie %><br />
+    <%= f.label :movie_id, "Movie" %><br />
     <%= f.collection_select :movie_id, Movie.all, :id, :name, :prompt=>true %>
   </div>
 
@@ -19,7 +19,7 @@
     <%= f.date_select :date %>
   </div>
   <div class="field">
-    <%= f.label :customer %><br />
+    <%= f.label :customer_id, "Customer" %><br />
     <%= f.collection_select :customer_id,Customer.all, :id, :name %>
   </div>
 

@@ -9,7 +9,7 @@ class RentalsController < ApplicationController
       flash[:notice] = "#{@rental.movie.name} has been rented to #{@rental.customer.name}!"
       redirect_to movies_path
     else
-      flash[:notice] = "Some problem prevented the movie from being rented"
+      flash[:notice] = "Sorry! That movie could not be rented out"
       render 'rentals/new'
     end
   end
