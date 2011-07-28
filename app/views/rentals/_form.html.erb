@@ -1,0 +1,29 @@
+<%= form_for(@rental) do |f| %>
+  <% if @rental.errors.any? %>
+    <h2> <%= pluralize(@rental.errors.count,"error") %> prevented movie from being saved: </h2>
+    <p> There were problems with the following fields: </p>
+    <ul>
+    <% @rental.errors.full_messages.each do |msg| %>
+      <li> <%= "#{msg}" %> </li>
+    <% end %>
+    </ul>
+   <% end %>
+
+  <div class="field">
+    <%= f.label :movie %><br />
+    <%= f.collection_select :movie_id, Movie.all, :id, :name, :prompt=>true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :customer %><br />
+    <%= f.text_field :customer_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
