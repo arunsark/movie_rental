@@ -8,7 +8,11 @@
 </head>
 <body>
 <h1> All Wood Movie Rentals </h1>
+<section id="flash_msg">
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div,value,:class => "flash #{key}") %>
+  <% end %>  
+</section>
 <%= yield %>
-
 </body>
 </html>

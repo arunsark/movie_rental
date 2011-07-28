@@ -1,4 +1,13 @@
 <%= form_for(@movie) do |f| %>
+  <% if @movie.errors.any? %>
+    <h2> <%= pluralize(@movie.errors.count,"error") %> prevented movie from being saved: </h2>
+    <p> There were problems with the following fields: </p>
+    <ul>
+    <% @movie.errors.full_messages.each do |msg| %>
+      <li> <%= "#{msg}" %> </li>
+    <% end %>
+    </ul>
+   <% end %>
 
   <div class="field">
     <%= f.label :name %><br />
@@ -14,7 +23,7 @@
   </div>
   <div class="field">
     <%= f.label :language %><br />
-    <%= f.text_field :language %>
+    <%= f.select :language, ["English", "Hindi", "Telugu"], :include_blank => false %>
   </div>
 
   <div class="actions">
